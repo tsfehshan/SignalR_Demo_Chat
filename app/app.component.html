@@ -1,0 +1,28 @@
+<div id="main-container" style="text-align:center">
+  <h1>
+    Demo Chat Room
+  </h1>
+
+  <div>
+    <input type="text" placeholder="your name please" id="name" name="nick" [(ngModel)]="nick" required>
+  </div>
+
+  <div class="container">
+    <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
+      <div>
+        <input type="text" placeholder="type here" id="message" name="message" [(ngModel)]="message" required>
+      </div>
+      <button type="submit" id="sendmessage" [disabled]="!chatForm.valid">
+        Send
+      </button>
+    </form>
+  </div>
+
+  <div class="container" *ngIf="messages.length > 0">
+    <div *ngFor="let message of messages">
+      <span>{{message}}</span>
+    </div>
+  </div>
+
+</div>
+
